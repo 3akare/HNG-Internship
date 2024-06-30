@@ -4,9 +4,8 @@ const app = express();
 const PORT = 8080;
 
 app.get("/home", (req, res) => {
-    console.log(req.headers['x-forwarded-for'])
-    console.log(req.connection.remoteAddress)
-    return res.json({ status: "Ok" })
+    const ipAddress = req.headers['x-forwarded-for'];
+    return res.json({ ipAddress: typeof(ipAddress), ipAddress, status: "Ok" })
 })
 
 app.listen(8080, () => {
