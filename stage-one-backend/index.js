@@ -7,10 +7,6 @@ const MODE = process.env.MODE;
 
 app.use(express.json());
 
-// app.use((err, req, res, next)=>{
-//     res.redirect("/home")
-// })
-
 app.get("/home", (req, res) => {
     let ipAddresses;
 
@@ -28,6 +24,10 @@ app.get("/home", (req, res) => {
     // return res.json({ ipAddress: typeof(ipAddress), ipAddress, status: "Ok" })
     return res.json({ ok: ipAddress });
 })
+
+app.use((req, res) => {
+    res.status(404).json({ error: "Not Found" });
+});
 
 app.listen(PORT, () => {
     console.log("Server is listening on" + PORT)
