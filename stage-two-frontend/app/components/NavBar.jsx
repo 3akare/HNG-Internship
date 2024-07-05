@@ -40,7 +40,7 @@ const NavBar = () => {
           >
             Deals
           </Link>
-          <li className="w-fit h-fit bg-black text-sm p-2 text-white rounded-md cursor-pointer">
+          <li className="w-fit h-fit bg-black text-sm py-2 px-6 text-white rounded uppercase cursor-pointer hover:text-black hover:bg-white transition-colors duration-300 border border-black">
             Sign Up
           </li>
         </ul>
@@ -52,13 +52,18 @@ const NavBar = () => {
             height={20}
             className="cursor-pointer"
           />
-          <Image
-            src={cart}
-            alt="cart"
-            width={20}
-            height={20}
-            className="cursor-pointer"
-          />
+          <div className="relative">
+            <Image
+              src={cart}
+              alt="cart"
+              width={20}
+              height={20}
+              className="cursor-pointer"
+            />
+            <span className="absolute rounded-full bg-red-500 size-4 -z-10 -top-[10px] -right-[10px] text-xs inline-flex items-center justify-center animate-pulse text-white">
+              3
+            </span>
+          </div>
         </ul>
       </nav>
     </header>

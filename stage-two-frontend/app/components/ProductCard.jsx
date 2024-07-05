@@ -24,7 +24,7 @@ const ProductCard = ({
         <p className="text-zinc-500">{productDescriptionShort}</p>
         <Link
           href={`/product/${productName + id}`}
-          className="py-2 text-zinc-700 font-semibold uppercase leading-[18px] tracking-wide border border-zinc-700 justify-center items-center gap-[3px] inline-flex hover:text-white hover:bg-zinc-700 transition-colors duration-300"
+          className="py-2 text-white bg-black font-semibold uppercase leading-[18px] tracking-wide border border-black justify-center items-center gap-[3px] inline-flex hover:text-black hover:bg-white transition-colors duration-300 rounded"
         >
           preview
         </Link>
