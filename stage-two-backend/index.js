@@ -15,16 +15,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/auth", authRoutes);
-app.use("/api/organization", organizationRoutes);
+app.use("/api/organizations", organizationRoutes);
 
 app.get("/", (req, res) => {
     return res.status(200).json({ status: "success" })
 })
 
-db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server is running on post: ${PORT}`)
+const server = app.listen(PORT, async () => {
+    db.sequelize.sync().then(() => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    }).catch(error => {
+        console.log("Error syncing database:", error);
     })
-}).catch(error => {
-    console.log("Error syncing database:", error);
-})
+});
+
+
+module.exports = server;

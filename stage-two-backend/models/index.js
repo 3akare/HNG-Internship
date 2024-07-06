@@ -1,18 +1,24 @@
 const Sequelize = require("sequelize");
 const config = require("../config/config");
+require('dotenv').config();
 
-const sequelize = new Sequelize(config.db, config.user, config.password, {
-    host: config.host,
-    dialect: config.dialect,
-    operatorsAliases: false,
-    pool: {
-        max: config.pool.max,
-        min: config.pool.min,
-        acquire: config.pool.acquire,
-        idle: config.pool.idle
-    },
+const env = process.env.NODE_ENV || 'development';
+// console.log()
+
+const dbConfig = config["development"];
+
+const sequelize = new Sequelize(dbConfig.db, dbConfig.user, dbConfig.password, {
+    host: dbConfig.host,
+    port: dbConfig.port, // include the port here
+    dialect: dbConfig.dialect,
+    dialectOptions: dbConfig.dialectOptions,
+    pool: dbConfig.pool,
     logging: false
-})
+});
+
+sequelize.authenticate()
+    .then(() => console.log('Database connected!'))
+    .catch(err => console.error('Unable to connect to the database:', err));
 
 const db = {}
 
