@@ -3,7 +3,7 @@ require("dotenv").config();
 module.exports = {
     development: {
         user: process.env.DB_USER || 'root',
-        password: process.env.DB_PASSWORD || '0987',
+        password: process.env.DB_PASSWORD || '0756abwmB$',
         db: process.env.DB_NAME || 'hng-database',
         host: process.env.DB_HOST || "localhost",
         port: process.env.DB_PORT || 3306,
