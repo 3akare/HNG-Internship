@@ -1,16 +1,40 @@
 require("dotenv").config();
 
 module.exports = {
-        dialect: "postgres",
-        host: "localhost",
-        user: "root",
-        password: "0987",
-        db: "HNG-database",
-        dialect: "mysql",
+    development: {
+        user: process.env.DB_USER || 'root',
+        password: process.env.DB_PASSWORD || '0987',
+        db: process.env.DB_NAME || 'hng-database',
+        host: process.env.DB_HOST || "localhost",
+        port: process.env.DB_PORT || 3306,
+        dialect: 'mysql',
+        dialectOptions: {
+        },
         pool: {
             max: 5,
             min: 0,
             acquire: 30000,
             idle: 10000
         }
-}
+    },
+    production: {
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        db: process.env.DB_NAME,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT, // port for production
+        dialect: 'postgres',
+        dialectOptions: {
+            ssl: {
+                require: true, // for SSL connection
+                rejectUnauthorized: false // to avoid self-signed certificate error
+            }
+        },
+        pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000,
+            idle: 10000
+        }
+    }
+};
