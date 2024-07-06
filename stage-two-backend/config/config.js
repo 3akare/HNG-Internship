@@ -7,7 +7,7 @@ module.exports = {
         db: process.env.DB_NAME || 'hng-database',
         host: process.env.DB_HOST || "localhost",
         port: process.env.DB_PORT || 3306,
-        dialect: 'mysql',
+        dialect: process.env.DB_DIALECT,
         dialectOptions: {
         },
         pool: {
