@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   return res.status(200).json({ status: "success" });
 });
 
-const server = app.listen(PORT, async () => {
+app.listen(PORT, async () => {
   db.sequelize
     .sync({ force: false })
     .then(() => {
@@ -32,5 +32,13 @@ const server = app.listen(PORT, async () => {
       console.log("Error syncing database:", error);
     });
 });
-
-module.exports = server;
+// const server = app.listen(PORT, async () => {
+//   db.sequelize
+//     .sync({ force: false })
+//     .then(() => {
+//       console.log(`Server is running on http://localhost:${PORT}`);
+//     })
+//     .catch((error) => {
+//       console.log("Error syncing database:", error);
+//     });
+// });
