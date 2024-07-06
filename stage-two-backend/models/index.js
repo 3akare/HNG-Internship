@@ -1,6 +1,8 @@
 const Sequelize = require("sequelize");
 const config = require("../config/config");
 const mysql = require("mysql2");
+const pg = require("pg");
+
 require("dotenv").config();
 
 const env = process.env.NODE_ENV || "development";
@@ -12,7 +14,7 @@ const sequelize = new Sequelize(dbConfig.db, dbConfig.user, dbConfig.password, {
   port: dbConfig.port, // include the port here
   dialect: dbConfig.dialect,
   dialectOptions: dbConfig.dialectOptions,
-    dialectModule: mysql,
+  dialectModule: pg,
   pool: dbConfig.pool,
   logging: false,
 });
