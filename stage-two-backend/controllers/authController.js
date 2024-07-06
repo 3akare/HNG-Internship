@@ -14,6 +14,7 @@ exports.register = async (req, res) => {
     }
 
     const existingUser = await User.findOne({ where: { email } });
+
     if (existingUser) {
       return res.status(422).json({
         errors: [{ field: "email", message: "Email already exists" }],
@@ -61,6 +62,7 @@ exports.register = async (req, res) => {
       },
     });
   } catch (error) {
+    console.log(error);
     return res.status(400).json({
       status: "Bad request",
       message: "Registration unsuccessful",
