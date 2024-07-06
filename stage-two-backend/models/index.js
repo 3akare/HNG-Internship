@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const env = process.env.NODE_ENV || "development";
 
-const dbConfig = config["development"];
+const dbConfig = config[env];
 
 const sequelize = new Sequelize(dbConfig.db, dbConfig.user, dbConfig.password, {
   host: dbConfig.host,
