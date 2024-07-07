@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="w-full bg-neutral-900 p-8 flex justify-center flex-col mt-12">
       <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-y-8 text-white md:grid-cols-4 py-4 md:py-8">
         <Link href={"/"}>
-          <div className="flex flex-col gap-6 items-baseline w-64 text-sm">
+          <div className="flex flex-col gap-6 items-baseline w-48 text-sm font-light ">
             <Image src={logo} alt="Allcast logo" />
             <p>
               We supply you the best of ceramic craft work and design to suit

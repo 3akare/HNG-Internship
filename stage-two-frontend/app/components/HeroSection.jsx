@@ -4,17 +4,21 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="container mx-auto max-w-7xl w-full rounded h-[650px] bg-neutral-100 flex items-center justify-center relative px-4">
-      <div className="flex flex-col gap-6 items-center justify-center md:items-start md:gap-8">
+    <section className="container mx-auto max-w-7xl w-full rounded h-[650px] bg-white flex items-center justify-around relative p-4">
+      <div className="flex flex-col gap-6 items-center justify-center md:items-start md:gap-8 w-2/3 basis-1">
         <div className="text-black text-center md:text-left text-5xl md:text-7xl font-black leading-[90px] md:leading-[1.25] uppercase">
-          <h1>Lets</h1>
+          <div className="relative inline-block">
+            <h1 className="skewed-text text-center relative z-10 after:!bg-black hover:after:!bg-amber-300 hover:!text-black text-white">
+              Lets
+            </h1>
+          </div>
           <h1>Explore</h1>
           <div className="relative inline-block">
             <h1 className="skewed-text text-center relative z-10">Unique</h1>
           </div>
           <h1>Crafts</h1>
         </div>
-        <h2 className="text-neutral-900 text-lg md:text-xl font-light capitalize">
+        <h2 className="text-neutral-900 md:text-lg text-center md:text-left lg:text-xl font-light capitalize">
           Elevate Your Space With Art
         </h2>
         <Link
@@ -24,12 +28,8 @@ const HeroSection = () => {
           shop now
         </Link>
       </div>
-
-      <div className="absolute right-0 bottom-0 hidden md:block">
-        <Image src={heroimage} alt="a girl dancing and smiling" />
-      </div>
-      <div className="invisible hidden md:block">
-        <Image src={heroimage} alt="a girl dancing and smiling" />
+      <div className="items-center justify-center w-1/3 h-full hidden md:flex">
+        <Image src={heroimage}></Image>
       </div>
     </section>
   );
